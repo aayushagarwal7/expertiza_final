@@ -50,12 +50,7 @@ module OnTheFlyCalc
   end
 
   def scores(questions)
-    scores = {}
-    score_team = scores[:teams][index.to_s.to_sym]
-    scores[:participants] = {}
-    participant_score
-    scores[:teams] = {}
-    index = 0
+    score_assignment
     self.teams.each do |team|
       score_team = {}
       score_team[:team] = team
@@ -74,6 +69,15 @@ module OnTheFlyCalc
 end
 
 private
+
+def score_assignment
+  scores = {}
+  score_team = scores[:teams][index.to_s.to_sym]
+  scores[:participants] = {}
+  participant_score
+  scores[:teams] = {}
+  index = 0
+end
 
 def calculate_rounds
   self.num_review_rounds.each do |i|
