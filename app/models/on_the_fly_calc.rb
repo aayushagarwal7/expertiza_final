@@ -26,7 +26,7 @@ module OnTheFlyCalc
     contributors = self.contributors # assignment_teams
     if self.varying_rubrics_by_round?
       rounds = self.rounds_of_reviews
-      (1..rounds).each do |round|#for round in 1..rounds
+      (1..rounds).each do |round|
         review_questionnaire_id = review_questionnaire_id(round)
         questions = Question.where(['questionnaire_id = ?', review_questionnaire_id])
         contributors.each do |contributor|
